@@ -9,3 +9,7 @@ export async function signIn() {
 export async function signOut() {
   return auth.signOut();
 }
+
+
+export { createComment } from './create-comment';
+
