@@ -1,5 +1,3 @@
-'use server';
+"use server";
 
-async function createComment() {
-
-}
+export async function createComment() {}

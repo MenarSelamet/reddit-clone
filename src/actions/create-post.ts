@@ -1,5 +1,3 @@
-'use server';
+"use server";
 
-+ async function createPost() {
-
-}
+export async function createPost() {}

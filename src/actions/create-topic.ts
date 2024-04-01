@@ -1,4 +1,3 @@
-'use server';
-+ async function createTopic() {
+"use server";
 
-}
+export async function createTopic() {}
