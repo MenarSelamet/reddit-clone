@@ -7,6 +7,7 @@ import {
   Input,
   Button,
   Avatar,
+  button,
 } from "@nextui-org/react";
 import { auth } from "@/auth";
 import * as actions from "@/actions";
@@ -16,7 +17,15 @@ export default async function Header() {
   let authContent: React.ReactNode;
   if (session?.user) {
     authContent = (
-      <Avatar src={session.user.image || " "} alt={session.user.name || " "} />
+      <>
+        <Avatar
+          src={session.user.image || " "}
+          alt={session.user.name || " "}
+        />
+        <form action={actions.signOut}>
+          <Button type="submit"> Sign Out</Button>
+        </form>
+      </>
     );
   } else {
     authContent = (
