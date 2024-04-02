@@ -16,6 +16,7 @@ import * as actions from "@/actions";
 
 export default async function Header() {
   const session = await auth();
+
   let authContent: React.ReactNode;
   if (session?.user) {
     authContent = (

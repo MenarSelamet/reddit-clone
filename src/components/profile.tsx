@@ -1,8 +1,5 @@
 "use client";
-
-import { px } from "framer-motion";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 
 export default function Profile() {
   const session = useSession();
