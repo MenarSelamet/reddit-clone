@@ -15,15 +15,24 @@ export default function TopicCreateForm() {
         <Button color="primary">Create Topic</Button>
       </PopoverTrigger>
       <PopoverContent>
-        <div className="p-0.5">
-          <form>
-            <Input placeholder="Title" />
-            <Textarea placeholder="Content" />
+        <form>
+          <div className="flex flex-col gap-4 p-4 w-80">
+            <h3 className="text-lg">Create a Topic</h3>
+            <Input
+              label="Title:"
+              placeholder="Title"
+              labelPlacement="outside"
+            />
+            <Textarea
+              label="Description:"
+              placeholder="Content"
+              labelPlacement="outside"
+            />
             <Button type="submit" color="primary">
               Create
             </Button>
-          </form>
-        </div>
+          </div>
+        </form>
       </PopoverContent>
     </Popover>
   );
