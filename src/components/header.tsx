@@ -12,6 +12,13 @@ import { auth } from "@/auth";
 
 export default async function Header() {
   const session = await auth();
+  let authContent: React.ReactNode;
+  if (session?.user) {
+    authContent = <div>User Image</div>;
+  } else {
+    authContent = <div>Sign In/Sign Out</div>;
+  }
+
   return (
     <Navbar className="shadow mb-6">
       <NavbarBrand>
@@ -25,9 +32,7 @@ export default async function Header() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem>
-          {session?.user ? <div>Signed In</div> : <div>Signed Out</div>}
-        </NavbarItem>
+        <NavbarItem>{authContent}</NavbarItem>
       </NavbarContent>
     </Navbar>
   );
