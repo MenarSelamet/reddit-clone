@@ -5,20 +5,10 @@ import {
   NavbarContent,
   NavbarItem,
   Input,
-  Button,
-  Avatar,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
 } from "@nextui-org/react";
-import { auth } from "@/auth";
-import * as actions from "@/actions";
+import HeaderAuth from "./header-auth";
 
-export default async function Header() {
-  const session = await auth();
-
-  
-
+export default function Header() {
   return (
     <Navbar className="shadow mb-6">
       <NavbarBrand>
@@ -31,7 +21,9 @@ export default async function Header() {
           <Input />
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">{authContent}</NavbarContent>
+      <NavbarContent justify="end">
+        <HeaderAuth />
+      </NavbarContent>
     </Navbar>
   );
 }
