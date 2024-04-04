@@ -13,10 +13,16 @@ const createTopicSchema = z.object({
 });
 
 export async function createTopic(formData: FormData) {
-  const name = formData.get("name") as string;
-  const description = formData.get("description") as string;
+const result = createTopicSchema.safeParse({
+    name: formData.get("name"),
+    description: formData.get("description"),
+  });
 
-  console.log(name, description);
+  if (!result.success) {
+    console.log(result.error);
+  }
+
+
 }
 
 //TODO: revalidate the homepage
