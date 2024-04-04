@@ -40,9 +40,11 @@ export default function TopicCreateForm() {
               isInvalid={!!formState.errors.description}
               errorMessage={formState.errors.description?.join(",")}
             />
-            <div className="bg-red-200 border border-red-400 rounded p-2">
-              {formState.errors._form?.join(",")}
-            </div>
+            {formState.errors._form ? (
+              <div className="bg-red-200 border border-red-400 rounded p-2">
+                {formState.errors._form?.join(",")}
+              </div>
+            ) : null}
             <Button type="submit" color="primary">
               Create
             </Button>
