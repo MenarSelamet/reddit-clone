@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Button,
   Input,
@@ -8,8 +10,15 @@ import {
   popover,
 } from "@nextui-org/react";
 import * as actions from "@/actions";
+import { useFormState } from "react-dom";
 
 export default function TopicCreateForm() {
+const [formState, action] = useFormState(actions.createTopic, {
+  name: "",
+  description: "",
+});
+
+
   return (
     <Popover placement="bottom">
       <PopoverTrigger>
