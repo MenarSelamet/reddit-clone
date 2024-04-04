@@ -20,15 +20,15 @@ export default function TopicCreateForm() {
           <div className="flex flex-col gap-4 p-4 w-80">
             <h3 className="text-lg">Create a Topic</h3>
             <Input
-              name="title"
-              label="Title:"
-              placeholder="Title"
+              name="name"
+              label="Name:"
+              placeholder="Name"
               labelPlacement="outside"
             />
             <Textarea
               name="description"
               label="Description:"
-              placeholder="Content"
+              placeholder="Description"
               labelPlacement="outside"
             />
             <Button type="submit" color="primary">
