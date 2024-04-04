@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Button,
@@ -13,8 +13,7 @@ import * as actions from "@/actions";
 import { useFormState } from "react-dom";
 
 export default function TopicCreateForm() {
-const [formState, action] = useFormState(actions.createTopic, 5);
-
+  const [formState, action] = useFormState(actions.createTopic, { errors: {} });
 
   return (
     <Popover placement="bottom">
