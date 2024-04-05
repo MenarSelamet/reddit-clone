@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { Topic } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { db } from "@/db";
@@ -71,10 +72,6 @@ export async function createTopic(
       };
     }
   }
+  revalidatePath("/");
   redirect(paths.topicShow(topic.slug));
-  return {
-    errors: {},
-  };
 }
-
-//TODO: revalidate the homepage
