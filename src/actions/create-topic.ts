@@ -1,5 +1,9 @@
 "use server";
 
+import { Topic } from "@prisma/client";
+import { redirect } from "next/navigation";
+import { db } from "@/db";
+import paths from "@/paths";
 import { auth } from "@/auth";
 import { z } from "zod";
 
@@ -44,7 +48,30 @@ export async function createTopic(
       },
     };
   }
-
+  let topic: Topic;
+  try {
+    topic = await db.topic.create({
+      data: {
+        slug: result.data.name,
+        description: result.data.description,
+      },
+    });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return {
+        errors: {
+          _form: [err.message],
+        },
+      };
+    } else {
+      return {
+        errors: {
+          _form: ["An unknown error occurred"],
+        },
+      };
+    }
+  }
+  redirect(paths.topicShow(topic.slug));
   return {
     errors: {},
   };
