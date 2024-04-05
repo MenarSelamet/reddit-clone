@@ -54,7 +54,7 @@ export async function createTopic(
     topic = await db.topic.create({
       data: {
         slug: result.data.name,
-        description: result.data.description,
+        description: result.data.description
       },
     });
   } catch (err: unknown) {
